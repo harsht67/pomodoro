@@ -1,11 +1,19 @@
 * {
     box-sizing: border-box;
+    font-family: arial;
 }
 
 body {
     margin: 0;
+    font-size: 16px;
 }
 
 h1,h2,h3,h4,h5,h6,p {
     margin: 0;
+}
+
+@media screen and (min-width:768px) {
+    body {
+        font-size: 24px;
+    }
 }
