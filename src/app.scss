@@ -1,0 +1,29 @@
+
+
+.container-app {
+    padding: 1rem;
+    > * {
+        margin-block-end: 2rem;
+    }
+
+    header {
+        .app-title {
+            display: block;
+            font-size: 2rem;    
+            text-align: center;
+        }
+    }
+
+    main {
+        > * {
+            margin-block-end: 2rem;
+        }
+    }
+
+    footer {
+        text-align: center;
+        i {
+            font-size: 1.75rem;
+        }
+    }
+}

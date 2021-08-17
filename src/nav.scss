@@ -1,0 +1,22 @@
+
+
+.container-nav {
+
+    nav {
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            border: 1px solid black;
+            width: fit-content;
+            margin: auto;
+
+            li {
+                display: inline-block;
+                border: 1px solid black;
+                padding: 0.75rem;
+            }
+        }
+    }
+}

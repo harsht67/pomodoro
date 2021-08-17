@@ -1,0 +1,19 @@
+
+
+.container-timer {
+    border: 1px solid black;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+
+    .timer-time {
+        display: block;
+        font-size: 5rem;
+    }
+
+    .timer-msg {
+        display: block;
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
+}
