@@ -22,6 +22,21 @@ export default function App() {
     long: 15,
   })
 
+  // change default values of pomodoro & short/long break
+  const changeTimerVals = (newObj) => {
+    setTimer({
+      ...newObj,
+    })
+  }
+
+  // change current timer
+  const changeTimer = (val) => {
+    setTimer({
+      ...timer,
+      curr: val,
+    })
+  }
+
   return (
     <div className='container-app'>
       
@@ -35,7 +50,9 @@ export default function App() {
       
       <main>
 
-        <Nav />
+        <Nav 
+          changeTimer = {changeTimer}
+        />
 
         <Timer 
           timer = {timer}
@@ -57,6 +74,7 @@ export default function App() {
       { setting &&
           <Setting
             toggleSettings = {toggleSettings}
+            changeTimerVals = {changeTimerVals}
             timer = {timer}
           />
       }

@@ -1,19 +1,34 @@
 // styles
 import './nav.scss'
 
-export default function Nav() {
+export default function Nav(props) {
+
+    const changeHandler = (e) => {
+        let val = e.target.getAttribute('data-val')
+        props.changeTimer(val)
+    }
+
     return(
         <article className='container-nav'>
 
             <nav>
                 <ul>
-                    <li>
+                    <li
+                        data-val='pomodoro'
+                        onClick={changeHandler}
+                    >
                         pomodoro
                     </li>
-                    <li>
+                    <li
+                        data-val='short'
+                        onClick={changeHandler}
+                    >
                         short break
                     </li>
-                    <li>
+                    <li
+                        data-val='long'
+                        onClick={changeHandler}
+                    >
                         long break
                     </li>
                 </ul>

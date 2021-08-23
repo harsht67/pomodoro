@@ -11,10 +11,20 @@ export default function Timer({timer}) {
     // interval
     const [i, setI] = useState(null)
 
+    // timer time 
     const [time, setTime] = useState({
         min: timer[timer.curr],
         sec: 0,
     })
+
+    //
+    useEffect(() => {
+        setTime({
+            ...time,
+            min: timer[timer.curr],
+            sec: 0,
+        })
+    }, [timer])
 
     // to stop when timer reaches 0 
     useEffect(() => {
