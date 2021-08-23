@@ -15,6 +15,28 @@ export default function App() {
     setSetting(prev => !prev)
   }
 
+  const [timer, setTimer] = useState({
+    curr: "pomodoro",
+    pomodoro: 1,
+    short:10,
+    long: 15,
+  })
+
+  // change default values of pomodoro & short/long break
+  const changeTimerVals = (newObj) => {
+    setTimer({
+      ...newObj,
+    })
+  }
+
+  // change current timer
+  const changeTimer = (val) => {
+    setTimer({
+      ...timer,
+      curr: val,
+    })
+  }
+
   return (
     <div className='container-app'>
       
@@ -28,9 +50,13 @@ export default function App() {
       
       <main>
 
-        <Nav />
+        <Nav 
+          changeTimer = {changeTimer}
+        />
 
-        <Timer />
+        <Timer 
+          timer = {timer}
+        />
 
       </main>
 
@@ -39,7 +65,7 @@ export default function App() {
         <div>
           <i 
             class="fas fa-cog"
-            onClick={toggleSettings}
+            onClick = {toggleSettings}
           />
         </div>
 
@@ -47,7 +73,9 @@ export default function App() {
 
       { setting &&
           <Setting
-            toggleSettings={toggleSettings}
+            toggleSettings = {toggleSettings}
+            changeTimerVals = {changeTimerVals}
+            timer = {timer}
           />
       }
 
