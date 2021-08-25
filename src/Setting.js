@@ -2,6 +2,9 @@
 import { useEffect, useState } from 'react'
 import './setting.scss'
 
+import fonts from './fonts'
+import colors from './colors'
+
 export default function Setting({timer, ...props}) {
 
     const [time, setTime] = useState({
@@ -39,6 +42,40 @@ export default function Setting({timer, ...props}) {
 
         toggleSettings()
     }
+
+    // change font 
+    const changeFont = (e) => {
+        let val = e.target.getAttribute('data-val')
+        props.changeFont(val)
+    }
+
+    // change color
+    const changeColor = (e) => {
+        let val = e.target.getAttribute('data-val')
+        props.changeColor(val)
+    }
+
+    // font buttons list
+    let fontList = fonts.map(font => (
+        <span
+            data-val={font}
+            onClick={changeFont}
+            style={{fontFamily:`${font}`}}
+        >
+            Aa
+        </span>)
+    )
+
+    // color buttons list 
+    let colorList = colors.map(color => (
+        <span
+            data-val={color}
+            onClick={changeColor}
+            style={{backgroundColor:`${color}`}}
+        >
+            {color}
+        </span>
+    ))
 
     const {pomodoro, short, long} = time
     return(
@@ -106,13 +143,22 @@ export default function Setting({timer, ...props}) {
                             font
                         </span>
 
+                        <div className='font-container'>
+                            {fontList}
+                        </div>
+
 
                     </section>
 
                     <section className='cat-color'>
+
                         <span className='cat-title'>
                             color
                         </span>
+
+                        <div className='color-container'>
+                            {colorList}
+                        </div>
 
                     </section>
 

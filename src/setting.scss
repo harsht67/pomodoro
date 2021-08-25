@@ -1,5 +1,6 @@
 
 .setting-bck {
+    color: var(--sec);
     position: fixed;
     top: 0; 
     bottom: 0;
@@ -68,6 +69,31 @@
                     }
                 }
             }
+
+            .cat-font, .cat-color {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+
+                .cat-title {
+                    width: 100%;
+                }
+            }
+
+            .font-container, .color-container  {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+                > span {
+                    border: 1px solid black;
+                    display: block;
+                    padding: 0.25rem;
+                    margin-inline: 0.25rem;
+                }
+            }
+
         }
 
         button {
@@ -110,6 +136,18 @@
                         }
                     }
                 }
+
+                .cat-font, .cat-color {
+                    
+                    .cat-title {
+                        width: fit-content;
+                    }
+                }
+
+                .font-container, .color-container  {
+                    width: fit-content;
+                }
+
             }
         }
     }

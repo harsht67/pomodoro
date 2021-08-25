@@ -5,7 +5,9 @@ import './app.scss';
 import Nav from './Nav'
 import Timer from './Timer'
 import Setting from './Setting'
-import { useState } from 'react';
+import { useState } from 'react'
+
+import { GlobalStyle } from './styles'
 
 export default function App() {
 
@@ -37,9 +39,33 @@ export default function App() {
     })
   }
 
+  // current theme & font
+  const [curr, setCurr] = useState({
+    font: 'arial',
+    color: '',
+  })
+
+  const changeFont = (val) => {
+    setCurr({
+      ...curr,
+      font: val,
+    })
+  }
+
+  const changeColor = (val) => {
+    setCurr({
+      ...curr, 
+      color: val,
+    })
+  }
+
   return (
     <div className='container-app'>
       
+      <GlobalStyle 
+        theme = {curr}
+      />
+
       <header>
 
         <span className='app-title'>
@@ -75,6 +101,8 @@ export default function App() {
           <Setting
             toggleSettings = {toggleSettings}
             changeTimerVals = {changeTimerVals}
+            changeFont = {changeFont}
+            changeColor = {changeColor}
             timer = {timer}
           />
       }
